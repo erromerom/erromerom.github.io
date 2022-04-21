@@ -1,5 +1,5 @@
-book_filename: 'bookdown_intro'
-repo: https://github.com/rubenfcasal/bookdown_intro
+book_filename: 'PAQ_BOOK'
+repo: https://github.com/erromerom/erromerom.github.io
 output_dir: docs
 new_session: no
 language:
