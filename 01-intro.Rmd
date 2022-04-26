@@ -2,6 +2,8 @@
 
 $\require{mhchem}$
 
+$\newcommand{\conc}[1]{\left[ \ce{#1} \right]}$
+
 ## Soluciones reguladoras
 
 *Una solución amortiguadora (regulada o buffer) se opone a cambios de pH cuando se le añaden ácidos o bases, o cuando se diluye*. Una solución reguladora está compúesta por la mezcla de un ácido débil y su base conjugada ó una base débil y su ácido conjugado, en esta mezcla el ácido y su base conjugada deben estar en cantidades comparables (dentro de una proporción de 1:10 ó 10:1) para funcionar eficazmente. Esto quiere decir que para preparar una solución reguladora existen principalmente tres opciones diferentes.
@@ -41,4 +43,15 @@ knitr::kable(df, caption = 'Algunos reguladores comunes')
 
 ### Capacidad reguladora
 
-En efecto, el término capacidad tampón significa el rango de pH en el que un tampón es eficaz. La opinión más extendida es que este rango se encuentra dentro de pKa � 1. La tabla y el gráfico siguientes ilustran la capacidad amortiguadora del tampón ácido etanoico/etanoato de sodio y permiten juzgar si el rango aceptado, pKa � 1, es razonable. pKa para el ácido etanoico es 4,76 a 25$^\circ$C.
+La capacidad de un regulador, $\beta$, es una medida de la resistencia de la disolución a cambiar de pH, cuando se le añade un ácido o una base fuerte. La capacidad de un regulador se define como [@VanSlyke1922]:
+
+$$\beta = \frac{d\ c(\text{b})}{d \text{ pH}} = - \frac{d\ c(\text{a})}{d \text{ pH}}$$
+
+donde $c(\text{a})$ y $c(\text{b})$ es la cantidad de sustancia de ácido fuerte (por ejemplo, $n(\ce{HNO3}$)) y de base fuerte (por ejemplo, $n(\ce{NaOH})$) por litro necesaria para producir un cambio de una unidad de pH. Cuanto mayor es el valor de $\beta$, más resistente es el regulador a un cambio de pH.
+
+Para un ácido débil monoprótico la capacidad reguladora será:
+
+$$\beta = \ln\left(10\right) \left(\conc{H3O+} +\conc{HO-} + c(\ce{HA})_{Total} \times \alpha_0 \times \alpha_1 \right) $$
+donde $\alpha_0$ y $\alpha_1$ corresponden a la especie ácida y su base conjugada, respectivamente. Para un ácido poliprótico cambia la ecuación a:
+
+$$\beta = \ln\left(10\right) \left(\conc{H3O+} +\conc{HO-} + c(\ce{HA})_{Total} \times \sum_{i=0}^{n-1} \sum_{j = i+1}^n \left(j-i\right)^2 \alpha_i \times \alpha_j \right) $$
