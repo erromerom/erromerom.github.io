@@ -1,11 +1,44 @@
-# Hello bookdown 
+# Equilibrio ácido-base
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+$\require{mhchem}$
 
-## A section
+## Soluciones reguladoras
 
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+*Una solución amortiguadora (regulada o buffer) se opone a cambios de pH cuando se le añaden ácidos o bases, o cuando se diluye*. Una solución reguladora está compúesta por la mezcla de un ácido débil y su base conjugada ó una base débil y su ácido conjugado, en esta mezcla el ácido y su base conjugada deben estar en cantidades comparables (dentro de una proporción de 1:10 ó 10:1) para funcionar eficazmente. Esto quiere decir que para preparar una solución reguladora existen principalmente tres opciones diferentes.
 
-### An unnumbered section {-}
+::: {.example}
+Se mezcla un ácido débil y una base fuerte, pero debe cumplir que $c(\ce{HA}) > c(\ce{NaOH})$.
+:::
 
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+::: {.example}
+Se mezcla un ácido débil y una sal del ácido débil, pero debe cumplir que $c(\ce{HA}) \approx c(\ce{NaA})$.
+:::
+
+::: {.example}
+Por último la opción menos usada es mezclar la sal del ácido débil y un ácido fuerte, pero debe cumplir que $c(\ce{NaA}) > c(\ce{HCl})$.
+:::
+
+```{r tables-common-buffers, echo=FALSE}
+x <- c("Ácido ftálico/hidrogeno ftalato de potasio",
+       "Ácido acético/acetato de sodio",
+       "Hidrogeno ftalato de potasio/ftalato de potasio",
+       "Dihidrógeno fosfato de potasio/hidrógeno fosfato de potasio",
+       "Ácido bórico/borato de sodio",
+       "Glicina/glicinato de sodio",
+       "Hidrógeno fosfato de potasio/fosfato de potasio")
+y <- c("2.2 - 3.8",
+       "3.4 - 5.9",
+       "4.0 - 6.2",
+       "5.8 - 8.0",
+       "7.8 - 10.0",
+       "9.5 - 11.7",
+       "11.0 - 12.0")
+df <- data.frame(x, y)
+colnames(df) <- c("Solución reguladora", "Rango aproximado de pH")
+
+knitr::kable(df, caption = 'Algunos reguladores comunes')
+```
+
+### Capacidad reguladora
+
+En efecto, el término capacidad tampón significa el rango de pH en el que un tampón es eficaz. La opinión más extendida es que este rango se encuentra dentro de pKa � 1. La tabla y el gráfico siguientes ilustran la capacidad amortiguadora del tampón ácido etanoico/etanoato de sodio y permiten juzgar si el rango aceptado, pKa � 1, es razonable. pKa para el ácido etanoico es 4,76 a 25�C.
