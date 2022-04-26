@@ -41,4 +41,4 @@ knitr::kable(df, caption = 'Algunos reguladores comunes')
 
 ### Capacidad reguladora
 
-En efecto, el término capacidad tampón significa el rango de pH en el que un tampón es eficaz. La opinión más extendida es que este rango se encuentra dentro de pKa � 1. La tabla y el gráfico siguientes ilustran la capacidad amortiguadora del tampón ácido etanoico/etanoato de sodio y permiten juzgar si el rango aceptado, pKa � 1, es razonable. pKa para el ácido etanoico es 4,76 a 25�C.
+En efecto, el término capacidad tampón significa el rango de pH en el que un tampón es eficaz. La opinión más extendida es que este rango se encuentra dentro de pKa � 1. La tabla y el gráfico siguientes ilustran la capacidad amortiguadora del tampón ácido etanoico/etanoato de sodio y permiten juzgar si el rango aceptado, pKa � 1, es razonable. pKa para el ácido etanoico es 4,76 a 25$^\circ$C.
