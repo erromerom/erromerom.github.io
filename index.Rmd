@@ -16,7 +16,7 @@ github-repo: rstudio/bookdown-demo
 
 # Acerca{-}
 
-Este libro incluye el resumen de las clases de principios de análisis químico, al igual que la ampliación de los ejercicios trabajados en clase.
+Este libro incluye el resumen de las clases de principios de análisis químico, al igual que la ampliación de los ejercicios trabajados en clase. sdf
 
 ## Uso{-}
 
