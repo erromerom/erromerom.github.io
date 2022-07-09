@@ -13,8 +13,19 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r results='hide', message=FALSE, warning=FALSE}
+library(tidyverse)
+library(kableExtra)
+```
 
 # Acerca{-}
+
+
 
 Este libro incluye el resumen de las clases de principios de análisis químico, al igual que la ampliación de los ejercicios trabajados en clase. sdf
 

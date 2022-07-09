@@ -1,3 +1,8 @@
+eq:lineasodio
+eq:relacionnmmetro
+eq:despejemetro
+eq:despejenanometro
+tab:examplequantity
 exm:unlabeled-div-1
 exm:unlabeled-div-2
 exm:unlabeled-div-3
@@ -6,6 +11,7 @@ fig:nice-fig
 tab:nice-tab
 eq:binom
 thm:tri
+cantidades-físicas-y-cálculo-de-cantidades
 equilibrio-ácido-base
 soluciones-reguladoras
 capacidad-reguladora

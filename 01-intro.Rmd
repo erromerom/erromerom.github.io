@@ -1,8 +1,61 @@
+# Cantidades físicas y cálculo de cantidades
+
+El valor de una cantidad física Q puede expresarse como el producto de un valor numérico {Q} y una unidad [Q]
+$$ Q = \{Q\}\ [Q]$$
+ni el nombre de la cantidad física, ni el símbolo utilizado para denotarla, implican una elección particular de la unidad ^[El símbolo [Q] se utilizaba antes para la dimensión de Q, pero este símbolo se utiliza y se prefiere para la unidad de Q.].
+
+Las cantidades físicas, los valores numéricos y las unidades pueden manipularse con las reglas ordinarias del álgebra. Así podemos escribir, por ejemplo, para la longitud de onda $\lambda$ de una de las líneas amarillas de sodio.
+\begin{equation} 
+  \lambda = 5.896\times 10^{-7}\text{ m} = 589.6\text{ nm}
+  (\#eq:lineasodio)
+\end{equation}
+
+donde m es el símbolo de la unidad de longitud llamada metro, nm es el símbolo del nanómetro, y las unidades metro y nanómetro están relacionadas por:
+\begin{equation} 
+  1\text{ nm} = 10^{-9}\text{ m}
+  (\#eq:relacionnmmetro)
+\end{equation}
+La equivalencia de las dos expresiones para $\lambda$ en la ecuación \@ref(eq:lineasodio) se deduce de inmediato cuando tratamos las unidades según las reglas del álgebra y reconocemos la identidad de $1 \text{ nm}$ y $10^{-9} \text{ m}$ en la ecuación \@ref(eq:relacionnmmetro). La longitud de onda puede expresarse igualmente en la forma:
+\begin{equation} 
+  \lambda/\text{m} = 5.896\times 10^{-7}
+  (\#eq:despejemetro)
+\end{equation}
+o
+\begin{equation} 
+  \lambda/\text{nm} = 589.6
+  (\#eq:despejenanometro)
+\end{equation}
+Puede ser útil trabajar con variables que se definen dividiendo la cantidad por una unidad determinada. Por ejemplo, al tabular los valores numéricos de las magnitudes físicas o al etiquetar los ejes de los gráficos, es especialmente conveniente utilizar el cociente de una magnitud física y una unidad de forma que los valores a tabular sean valores numéricos, como en las ecuaciones \@ref(eq:despejemetro) y \@ref(eq:despejenanometro).
+
+```{r examplequantity, echo=FALSE, message=FALSE, warning=FALSE}
+x <- c(216.55, 273.15, 304.19)
+y <- signif(10^3 / x, 5)
+w <- c(0.5180, 3.4853, 7.3815)
+z <- round(log(w), 4)
+df <- data.frame(x, y, w, z)
+colnames(df) <- c("$T/\\text{K}$", "$10^{3}\\ \\text{K}/T$",
+                  "$p/\\text{MPa}$", "$\\ln \\left(p/\\text{MPa}\\right)$")
+
+df %>%
+  kbl(caption = "Recreating booktabs style table") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+
+ggplot(df) +
+  aes(x = y, y = z) +
+  geom_point(size = 3.5, color="red") +
+  stat_smooth(method = "lm", formula = y ~ x, se = FALSE, fullrange = T) +
+  labs(x = bquote(paste(10^3," K/", italic("T"))),
+       y = bquote(paste("ln(", italic("p"),"/MPa)"))
+       ) +
+  theme_bw() + 
+  theme(text = element_text(size = 20))
+  
+```
+
+$$\SI{12345,67890}{\mole\per\liter}$$ 
+
 # Equilibrio ácido-base
 
-$\require{mhchem}$
-
-$\newcommand{\conc}[1]{\left[ \ce{#1} \right]}$
 
 ## Soluciones reguladoras
 
@@ -51,7 +104,7 @@ donde $c(\text{a})$ y $c(\text{b})$ es la cantidad de sustancia de ácido fuerte
 
 Para un ácido débil monoprótico la capacidad reguladora será:
 
-$$\beta = \ln\left(10\right) \left(\conc{H3O+} +\conc{HO-} + c(\ce{HA})_{Total} \times \alpha_0 \times \alpha_1 \right) $$
+$$\beta = \ln\left(10\right) \left([\ce{H3O+}] +[\ce{HO-}] + c(\ce{HA})_{Total} \times \alpha_0 \times \alpha_1 \right) $$
 donde $\alpha_0$ y $\alpha_1$ corresponden a la especie ácida y su base conjugada, respectivamente. Para un ácido poliprótico cambia la ecuación a:
 
-$$\beta = \ln\left(10\right) \left(\conc{H3O+} +\conc{HO-} + c(\ce{HA})_{Total} \times \sum_{i=0}^{n-1} \sum_{j = i+1}^n \left(j-i\right)^2 \alpha_i \times \alpha_j \right) $$
+$$\beta = \ln\left(10\right) \left([\ce{H3O+}] + [\ce{HO-}] + c(\ce{HA})_{Total} \times \sum_{i=0}^{n-1} \sum_{j = i+1}^n \left(j-i\right)^2 \alpha_i \times \alpha_j \right) $$
